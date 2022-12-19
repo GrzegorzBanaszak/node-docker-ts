@@ -1,6 +1,7 @@
 import express, { Express } from "express";
 import { CustomerRoute } from "./routes/CustomerRoute";
 import { Route } from "./routes/Route";
+import { Client } from "./db/Client";
 
 export class App {
   app: Express;
@@ -9,6 +10,9 @@ export class App {
 
   constructor() {
     this.app = express();
+
+    //Initialisation client container to create connection with Mysql
+    Client.getInstancion();
 
     this.config();
 

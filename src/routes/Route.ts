@@ -13,9 +13,9 @@ export abstract class Route {
   }
 
   private initRoutes() {
-    this.router.get("/", this.controller.getAll);
-    this.router.get("/:id", this.controller.get);
-    this.router.post("/", this.controller.add);
+    this.router.get("/", this.controller.getAll());
+    this.router.get("/:id", this.controller.get());
+    this.router.post("/", this.controller.add());
   }
 
   getRouterName(): string {
