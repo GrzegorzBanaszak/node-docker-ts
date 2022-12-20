@@ -33,4 +33,25 @@ export class Client {
 
     return rows;
   }
+
+  public async getAll(queryType: Array<string>, table: string) {
+    const queryString = `SELECT ${queryType} FROM ${table}`;
+
+    const [rows, fields] = await this.conn.query(queryString);
+
+    return rows;
+  }
+
+  public async getById(
+    id: string,
+    idType: string,
+    queryType: Array<string>,
+    table: string
+  ) {
+    const queryString = `SELECT ${queryType} FROM ${table} WHERE ${idType}=${id}`;
+
+    const [rows, fields] = await this.conn.query(queryString);
+
+    return rows[0];
+  }
 }
