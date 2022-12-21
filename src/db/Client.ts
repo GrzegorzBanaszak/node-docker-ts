@@ -1,9 +1,4 @@
-import {
-  Connection,
-  createConnection,
-  QueryError,
-  RowDataPacket,
-} from "mysql2/promise";
+import { Connection, ResultSetHeader, createConnection } from "mysql2/promise";
 
 export class Client {
   private static instance: Client;
@@ -34,24 +29,12 @@ export class Client {
     return rows;
   }
 
-  public async getAll(queryType: Array<string>, table: string) {
-    const queryString = `SELECT ${queryType} FROM ${table}`;
-
-    const [rows, fields] = await this.conn.query(queryString);
+  /**
+   * Return resultat after insertion a new data
+   */
+  public async singleQuery(queryString: string): Promise<ResultSetHeader> {
+    const [rows, fields] = await this.conn.query<ResultSetHeader>(queryString);
 
     return rows;
-  }
-
-  public async getById(
-    id: string,
-    idType: string,
-    queryType: Array<string>,
-    table: string
-  ) {
-    const queryString = `SELECT ${queryType} FROM ${table} WHERE ${idType}=${id}`;
-
-    const [rows, fields] = await this.conn.query(queryString);
-
-    return rows[0];
   }
 }

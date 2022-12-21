@@ -16,6 +16,4 @@ export abstract class Entity {
     const propsValues = Object.getOwnPropertyNames(this.props);
     return propsValues;
   }
-
-  abstract getProps();
 }
