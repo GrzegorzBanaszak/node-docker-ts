@@ -6,10 +6,11 @@ export abstract class Route {
   protected routerName: string;
   protected controller: Controller;
 
-  constructor(controller: Controller) {
+  constructor(controller: Controller, routeName: string) {
     this.router = Router();
     this.controller = controller;
     this.initRoutes();
+    this.routerName = routeName;
   }
 
   private initRoutes() {

@@ -3,8 +3,6 @@ import { Entity } from "./Entity";
 
 export class CustomerEntity extends Entity {
   constructor() {
-    super();
-    this.id = "id";
-    this.props = new CustomerProps();
+    super("id", new CustomerProps());
   }
 }

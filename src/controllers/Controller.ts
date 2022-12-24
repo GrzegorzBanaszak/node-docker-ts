@@ -12,7 +12,8 @@ export abstract class Controller {
   abstract get(): (req: Request, res: Response) => Promise<void>;
   abstract add(): (req: Request, res: Response) => Promise<void>;
 
-  constructor() {
+  constructor(entity: Entity) {
     this.client = Client.getInstancion();
+    this.entity = entity;
   }
 }

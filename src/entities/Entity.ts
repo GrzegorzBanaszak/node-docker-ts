@@ -4,6 +4,11 @@ export abstract class Entity {
   protected id: string;
   protected props: Props;
 
+  protected constructor(id: string, props: Props) {
+    this.id = id;
+    this.props = props;
+  }
+
   getId(): string {
     return this.id;
   }

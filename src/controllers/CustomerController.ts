@@ -6,8 +6,7 @@ import { QueryMaker } from "../db/QueryMaker";
 
 export class CustomerController extends Controller {
   constructor() {
-    super();
-    this.entity = new CustomerEntity();
+    super(new CustomerEntity());
     this.queryMaker = new QueryMaker(
       this.entity.getId(),
       this.entity.getPropsArray(),
@@ -39,7 +38,6 @@ export class CustomerController extends Controller {
   add() {
     return async (req: Request, res: Response) => {
       const { firstName, lastName, email } = req.body;
-
       const addQuery = this.queryMaker.addQuery<CustomerProps>({
         firstName,
         lastName,

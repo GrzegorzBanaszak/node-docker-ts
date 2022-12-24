@@ -5,11 +5,11 @@ export class Client {
   private conn: Connection;
   private constructor() {
     createConnection({
-      host: "localhost",
+      host: "host.docker.internal",
       user: "admin",
       password: "Admin123",
       port: 13306,
-      database: "db",
+      database: "firma",
     }).then((conn) => {
       this.conn = conn;
     });

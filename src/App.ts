@@ -2,10 +2,11 @@ import express, { Express } from "express";
 import { CustomerRoute } from "./routes/CustomerRoute";
 import { Route } from "./routes/Route";
 import { Client } from "./db/Client";
+import { CompanyRoute } from "./routes/CompanyRoute";
 
 export class App {
   app: Express;
-  routes: Array<Route> = [new CustomerRoute()];
+  routes: Array<Route> = [new CustomerRoute(), new CompanyRoute()];
   port: Number = Number(process.env.PORT) || 3000;
 
   constructor() {
