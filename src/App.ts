@@ -1,19 +1,18 @@
 import express, { Express } from "express";
-import { CustomerRoute } from "./routes/CustomerRoute";
 import { Route } from "./routes/Route";
-import { Client } from "./db/Client";
-import { CompanyRoute } from "./routes/CompanyRoute";
+import { PrismaLocalClient } from "./prisma/Prisma";
+import { FirmaRoute } from "./routes/FrimaRoute";
 
 export class App {
   app: Express;
-  routes: Array<Route> = [new CustomerRoute(), new CompanyRoute()];
+  routes: Array<Route> = [new FirmaRoute()];
   port: Number = Number(process.env.PORT) || 3000;
 
   constructor() {
     this.app = express();
 
     //Initialisation client container to create connection with Mysql
-    Client.getInstancion();
+    PrismaLocalClient.getInstancion();
 
     this.config();
 

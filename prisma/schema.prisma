@@ -10,8 +10,49 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Firma {
+  idFirmy             Int                   @id @default(autoincrement())
+  nazwa               String
+  nip                 String
+  numerTelefonu       String
+  Klient              Klient[]
+  PrzyjecieZewnetrzne PrzyjecieZewnetrzne[]
+}
+
+model Klient {
+  idKlienta     Int    @id @default(autoincrement())
+  imie          String
+  nazwisko      String
+  email         String
+  numerTelefonu String
+  Firma         Firma? @relation(fields: [idFirmy], references: [idFirmy])
+  idFirmy       Int?
+}
+
+model Towar {
+  idTowaru        Int               @id @default(autoincrement())
+  nazwa           String
+  cena            Decimal
+  opis            String?
+  TowaryPrzyjecia TowaryPrzyjecia[]
+}
+
+model PrzyjecieZewnetrzne {
+  idPrzyjecia     Int               @id @default(autoincrement())
+  numerPrzyjecia  String
+  dataPrzyjecia   DateTime          @default(now())
+  dostawca        Firma             @relation(fields: [idDostawcy], references: [idFirmy])
+  idDostawcy      Int
+  TowaryPrzyjecia TowaryPrzyjecia[]
+}
+
+model TowaryPrzyjecia {
+  idPrzyjecia         Int
+  idTowaru            Int
+  cena                Decimal
+  ilosc               Int
+  towar               Towar?              @relation(fields: [idTowaru], references: [idTowaru])
+  przujecieZewnetrzne PrzyjecieZewnetrzne @relation(fields: [idPrzyjecia], references: [idPrzyjecia])
+
+  @@id([idPrzyjecia, idTowaru])
 }
