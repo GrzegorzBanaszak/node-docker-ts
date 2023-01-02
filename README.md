@@ -10,7 +10,6 @@ Application use Prisma to mapping models that we dont must write any SQL and in 
 
 ```
 docker compose -f docker-compose.dev.yml up --build
-
 ```
 
 **To run app with without docker you need**
@@ -24,16 +23,14 @@ Example:
 
 ```
 DATABASE_URL="mysql://login:password@localhost:3306/dbname"
-
 ```
 
-Then if you have database url type
+Ff you have database url then enter
 
 ```
 npm install
 
 npm run dev
-
 ```
 
 ---
