@@ -6,7 +6,7 @@ Application use Prisma to mapping models that we dont must write any SQL and in 
 
 ---
 
-**To run app with docker type**
+**To run app with docker**
 
 ```
 docker compose -f docker-compose.dev.yml up --build
