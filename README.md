@@ -36,6 +36,12 @@ npm run dev
 
 ```
 
+---
+
+###Database relation
+
+![i](images/Firma.png)
+
 #### USE TECHS
 
 ![TS](https://img.shields.io/badge/Typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white) ![PRISMA](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white) ![DOCKER](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![MYSQL](https://img.shields.io/badge/MYsql-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
