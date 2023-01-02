@@ -2,6 +2,7 @@ import express, { Express } from "express";
 import { Route } from "./routes/Route";
 import { PrismaLocalClient } from "./prisma/Prisma";
 import { FirmaRoute } from "./routes/FrimaRoute";
+import { ErrorMiddleware } from "./middleware/errorMiddleware";
 
 export class App {
   app: Express;
@@ -32,5 +33,8 @@ export class App {
     this.routes.forEach((route) => {
       this.app.use(route.getRouterName(), route.getRouter());
     });
+
+    //Adding error handler
+    this.app.use(ErrorMiddleware.errorHandle);
   }
 }

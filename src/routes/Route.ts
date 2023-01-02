@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { Controller } from "../controllers/Controller";
+import asyncHandelr from "express-async-handler";
 
 export abstract class Route {
   protected router: Router;
@@ -14,9 +15,11 @@ export abstract class Route {
   }
 
   private initRoutes() {
-    this.router.get("/", this.controller.getAll());
-    this.router.get("/:id", this.controller.get());
-    this.router.post("/", this.controller.add());
+    this.router.get("/", asyncHandelr(this.controller.getAll()));
+    this.router.get("/:id", asyncHandelr(this.controller.get()));
+    this.router.post("/add", asyncHandelr(this.controller.add()));
+    this.router.put("/:id", asyncHandelr(this.controller.update()));
+    this.router.delete("/:id", asyncHandelr(this.controller.delete()));
   }
 
   getRouterName(): string {
