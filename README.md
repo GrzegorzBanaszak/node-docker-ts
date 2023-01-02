@@ -25,7 +25,7 @@ Example:
 DATABASE_URL="mysql://login:password@localhost:3306/dbname"
 ```
 
-Ff you have database url then enter
+If you have database url then enter
 
 ```
 npm install
@@ -35,7 +35,7 @@ npm run dev
 
 ---
 
-###Database relation
+### Database relation
 
 ![i](images/Firma.png)
 
