@@ -6,11 +6,10 @@ Application use Prisma to mapping models that we dont must write any SQL and in 
 
 ---
 
-**To run app with docker type**
+**To run app with docker**
 
 ```
 docker compose -f docker-compose.dev.yml up --build
-
 ```
 
 **To run app with without docker you need**
@@ -24,21 +23,19 @@ Example:
 
 ```
 DATABASE_URL="mysql://login:password@localhost:3306/dbname"
-
 ```
 
-Then if you have database url type
+If you have database url then enter
 
 ```
 npm install
 
 npm run dev
-
 ```
 
 ---
 
-###Database relation
+### Database relation
 
 ![i](images/Firma.png)
 
