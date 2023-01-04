@@ -3,10 +3,11 @@ import { Route } from "./routes/Route";
 import { PrismaLocalClient } from "./prisma/Prisma";
 import { FirmaRoute } from "./routes/FrimaRoute";
 import { ErrorMiddleware } from "./middleware/errorMiddleware";
+import { KlientRoute } from "./routes/KlientRoute";
 
 export class App {
   app: Express;
-  routes: Array<Route> = [new FirmaRoute()];
+  routes: Array<Route> = [new FirmaRoute(), new KlientRoute()];
   port: Number = Number(process.env.PORT) || 3000;
 
   constructor() {
