@@ -1,4 +1,3 @@
-import { customers } from "./../mockData";
 import { Request, Response } from "express";
 import { Controller } from "./Controller";
 import { Klient } from "../classes/Klient";
