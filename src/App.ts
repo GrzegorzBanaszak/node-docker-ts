@@ -5,6 +5,7 @@ import { FirmaRoute } from "./routes/FrimaRoute";
 import { ErrorMiddleware } from "./middleware/errorMiddleware";
 import { KlientRoute } from "./routes/KlientRoute";
 import { TowarRoute } from "./routes/TowarRoute";
+import { PrzyjecieZewnetrzneRoute } from "./routes/PrzyjecieZewnetrzneRoute";
 
 export class App {
   app: Express;
@@ -12,6 +13,7 @@ export class App {
     new FirmaRoute(),
     new KlientRoute(),
     new TowarRoute(),
+    new PrzyjecieZewnetrzneRoute(),
   ];
   port: Number = Number(process.env.PORT) || 3000;
 

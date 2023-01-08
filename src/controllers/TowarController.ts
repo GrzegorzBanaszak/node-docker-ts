@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 export class TowarController extends Controller {
   getAll(): (req: Request, res: Response) => Promise<void> {
     return async (req: Request, res: Response) => {
-      const commodites = await this.client.firma.findMany();
+      const commodites = await this.client.towar.findMany();
 
       res.status(200).json(commodites);
     };

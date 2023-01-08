@@ -39,7 +39,7 @@ model Towar {
 
 model PrzyjecieZewnetrzne {
   idPrzyjecia     Int               @id @default(autoincrement())
-  numerPrzyjecia  String
+  numerPrzyjecia  String            @unique()
   dataPrzyjecia   DateTime          @default(now())
   dostawca        Firma             @relation(fields: [idDostawcy], references: [idFirmy])
   idDostawcy      Int
@@ -47,12 +47,12 @@ model PrzyjecieZewnetrzne {
 }
 
 model TowaryPrzyjecia {
-  idPrzyjecia         Int
+  numerPrzyjecia      String
   idTowaru            Int
   cena                Decimal
   ilosc               Int
-  towar               Towar?              @relation(fields: [idTowaru], references: [idTowaru])
-  przujecieZewnetrzne PrzyjecieZewnetrzne @relation(fields: [idPrzyjecia], references: [idPrzyjecia])
+  towar               Towar               @relation(fields: [idTowaru], references: [idTowaru])
+  przyjecieZewnetrzne PrzyjecieZewnetrzne @relation(fields: [numerPrzyjecia], references: [numerPrzyjecia])
 
-  @@id([idPrzyjecia, idTowaru])
+  @@id([numerPrzyjecia, idTowaru])
 }
